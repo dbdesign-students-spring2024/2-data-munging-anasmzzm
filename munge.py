@@ -28,22 +28,17 @@ for i in range(len(csv_file)):
     for k in range(len(csv_file[i].split(' '))):
         csv_file_format.append(csv_file[i].split(' ')[k])
 
-data_file.close() 
+data_file.close()
 
 for num in range(len(csv_file_format)):
     if csv_file_format[num] == '****':
-        total = int(csv_file_format[num-3]) + int(csv_file_format[num-13]) + int(csv_file_format[num-14])
-        DJF_average = int(total / 3)
-        csv_file_format[num] = DJF_average
-        
+        csv_file_format[num] = 0
     if csv_file_format[num] == '***':
-        total = int(csv_file_format[num-2]) + int(csv_file_format[num - 3])
-        DN_average = total / 2
-        csv_file_format[num] = int(DN_average)
+        csv_file_format[num] = 0
 
 counter = 0
 for k in range(20, len(csv_file_format)):
-    if(len(str(csv_file_format[k])) != 4):
+    if len(str(csv_file_format[k]) != 4):
         csv_file_format[k] = format((int(csv_file_format[k])/ 100) * 1.8, '.1f')
 
 csv_file_created = open("clean_data.csv", "w")

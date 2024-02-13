@@ -17,6 +17,6 @@ for i in range(9, len(totals), 10):
     averages.append(sum(map(float, totals[i-9:i+1])) / 10)
     decades.append(f"{years[i-9]}-{years[i]}")
 
-print("Decade:       Average Temperature Anamoly:")
+print("Decade:       Average Temperature Anomaly:")
 for i in range(len(decades)):
     print(str(decades[i])+"                "  + str(format(averages[i],'.1f')) + " °F")
